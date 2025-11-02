@@ -27,8 +27,8 @@ A comprehensive research journal management platform with submission tracking, p
 
 ```bash
 # Pull images from GitHub Container Registry
-docker pull ghcr.io/YOUR_USERNAME/journal/backend:latest
-docker pull ghcr.io/YOUR_USERNAME/journal/frontend:latest
+docker pull ghcr.io/datta30/journal/backend:latest
+docker pull ghcr.io/datta30/journal/frontend:latest
 
 # Run with docker-compose
 docker compose up -d
