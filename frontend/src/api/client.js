@@ -1,12 +1,14 @@
 import axios from 'axios';
 
-const apiBaseUrl = process.env.REACT_APP_API_URL || 'http://localhost:8080';
+// Backend base URL — change port here if needed
+const apiBaseUrl = process.env.REACT_APP_API_URL || 'http://localhost:9099';
 
 const apiClient = axios.create({
   baseURL: `${apiBaseUrl}/api`,
   withCredentials: true,
 });
 
+// Attach token to every request if available
 apiClient.interceptors.request.use((config) => {
   const token = localStorage.getItem('journal_token');
   if (token) {
@@ -15,6 +17,7 @@ apiClient.interceptors.request.use((config) => {
   return config;
 });
 
+// Handle unauthorized errors (401)
 apiClient.interceptors.response.use(
   (response) => response,
   (error) => {
